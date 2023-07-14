@@ -1,3 +1,6 @@
+import Header from '@/components/Header'
+import Sidebar from '@/components/Sidebar'
+
 import './globals.css'
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
@@ -20,7 +23,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-      <body className={roboto.className}>{children}</body>
+      <body className={roboto.className}>
+        <div className="layout mx-auto my-0 grid max-w-screen-lg grid-cols-[300px_1fr]">
+          <Sidebar />
+
+          <div className="content border-x border-[#ebeef0]">{children}</div>
+        </div>
+      </body>
     </html>
   )
 }

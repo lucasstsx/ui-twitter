@@ -11,7 +11,7 @@ export default function Tweet({ content }: TweetProps) {
   return (
     <Link
       className="grid grid-cols-[3rem_1fr] gap-3 border-b border-[#ebeef0] px-5 py-6"
-      href="#"
+      href="/tweet"
     >
       <Image
         className="h-12 w-12 rounded-full"
