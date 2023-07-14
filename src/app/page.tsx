@@ -1,78 +1,20 @@
-'use client'
 import Image from 'next/image'
-import twitterLogo from '../assets/logo-twitter.svg'
-import Link from 'next/link'
-import {
-  House,
-  Hash,
-  Bell,
-  EnvelopeSimple,
-  BookmarkSimple,
-  FileText,
-  User,
-  DotsThreeCircle,
-  Sparkle,
-} from '@phosphor-icons/react'
+
+import Tweet from '@/components/Tweet'
+import Sidebar from '@/components/Sidebar'
+import Header from '@/components/Header'
+import Separator from '@/components/Separator'
+
+const tweets = ['Meu primeiro Tweet', 'Teste', 'Deu certo Tweetar!']
 
 export default function Home() {
   return (
     <div className="layout mx-auto my-0 grid max-w-screen-lg grid-cols-[300px_1fr]">
-      <aside className="sidebar flex flex-col gap-8 px-6 py-5">
-        <Image src={twitterLogo} alt={'Logo do twitter'} />
-
-        <nav className="main-navigation flex flex-col gap-8">
-          <Link className="active" href="#">
-            <House weight="fill" />
-            Home
-          </Link>
-          <Link href="#">
-            <Hash />
-            Explore
-          </Link>
-          <Link href="#">
-            <Bell />
-            Notifications
-          </Link>
-          <Link href="#">
-            <EnvelopeSimple />
-            Messages
-          </Link>
-          <Link href="#">
-            <BookmarkSimple />
-            Bookmarks
-          </Link>
-          <Link href="#">
-            <FileText />
-            Lists
-          </Link>
-          <Link href="#">
-            <User />
-            Profile
-          </Link>
-          <Link href="#">
-            <DotsThreeCircle />
-            More
-          </Link>
-        </nav>
-
-        <button
-          className=" new-tweet flex w-full justify-center rounded-full bg-[var(--twitter-blue)] p-4 text-[1.25rem] font-bold text-white hover:brightness-95"
-          type="button"
-        >
-          Tweet
-        </button>
-      </aside>
+      <Sidebar />
 
       <div className="content border-x border-[#ebeef0]">
         <main className="timeline">
-          <div className="timeline-header flex items-center justify-between border-b border-[#ebeef0] px-5 py-6 text-xl font-bold">
-            Home
-            <Sparkle
-              className="text-[var(--twitter-blue)]"
-              width="1.5rem"
-              height="1.5rem"
-            />
-          </div>
+          <Header title="Home" />
 
           <form className="new-tweet-form flex flex-col gap-2 px-5 py-6">
             <label className="flex items-center gap-3" htmlFor="tweet">
@@ -97,7 +39,12 @@ export default function Home() {
               Tweet
             </button>
           </form>
-          <div className="separator h-3 border-y border-[#ebeef0] bg-[#f7f9fa]" />
+
+          <Separator />
+
+          {tweets.map((tweet) => {
+            return <Tweet key={tweet} content={tweet} />
+          })}
         </main>
       </div>
     </div>

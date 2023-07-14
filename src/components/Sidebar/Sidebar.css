@@ -1,0 +1,16 @@
+.main-navigation a{
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.main-navigation a svg{
+  width: 2rem;
+  height: 2rem;
+}
+.main-navigation a.active{
+  color: var(--twitter-blue);
+}
