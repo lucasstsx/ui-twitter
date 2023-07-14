@@ -12,16 +12,19 @@ import {
 import twitterLogo from '../../assets/logo-twitter.svg'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
 import './Sidebar.css'
 
 export default function Sidebar() {
+  const pathname = usePathname()
   return (
     <aside className="sidebar flex flex-col gap-8 px-6 py-5">
       <Image src={twitterLogo} alt={'Logo do twitter'} />
 
       <nav className="main-navigation flex flex-col gap-8">
-        <Link className="active" href="#">
-          <House weight="fill" />
+        <Link className={pathname === '/' ? 'active' : ''} href="/">
+          <House weight={pathname === '/' ? 'fill' : 'regular'} />
           Home
         </Link>
         <Link href="#">

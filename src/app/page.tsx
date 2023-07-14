@@ -23,7 +23,7 @@ export default function Home() {
               height={460}
             />
             <textarea
-              className="flex flex-1 resize-none text-xl font-medium placeholder-[#5b7083af] focus:outline-none"
+              className="flex flex-1 resize-none text-xl font-medium placeholder:text-[#5B7083] focus:outline-none"
               id="tweet"
               placeholder="What's happening?"
             ></textarea>
