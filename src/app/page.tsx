@@ -11,6 +11,7 @@ import {
   FileText,
   User,
   DotsThreeCircle,
+  Sparkle,
 } from '@phosphor-icons/react'
 
 export default function Home() {
@@ -62,7 +63,43 @@ export default function Home() {
         </button>
       </aside>
 
-      <div className="content border-x border-[#ebeef0]">content</div>
+      <div className="content border-x border-[#ebeef0]">
+        <main className="timeline">
+          <div className="timeline-header flex items-center justify-between border-b border-[#ebeef0] px-5 py-6 text-xl font-bold">
+            Home
+            <Sparkle
+              className="text-[var(--twitter-blue)]"
+              width="1.5rem"
+              height="1.5rem"
+            />
+          </div>
+
+          <form className="new-tweet-form flex flex-col gap-2 px-5 py-6">
+            <label className="flex items-center gap-3" htmlFor="tweet">
+              <Image
+                className="h-12 w-12 rounded-full"
+                src="https://github.com/Lucassdev.png"
+                alt="Foto de perfil do usuário"
+                width={460}
+                height={460}
+              />
+              <textarea
+                className="flex flex-1 resize-none text-xl font-medium placeholder-[#5b7083af] focus:outline-none"
+                id="tweet"
+                placeholder="What's happening?"
+              ></textarea>
+            </label>
+
+            <button
+              className="ml-auto rounded-full bg-[var(--twitter-blue)] px-6 py-3 text-base font-black text-white hover:brightness-95"
+              type="submit"
+            >
+              Tweet
+            </button>
+          </form>
+          <div className="separator h-3 border-y border-[#ebeef0] bg-[#f7f9fa]" />
+        </main>
+      </div>
     </div>
   )
 }
