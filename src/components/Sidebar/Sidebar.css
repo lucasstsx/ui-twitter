@@ -14,3 +14,10 @@
 .main-navigation a.active{
   color: var(--twitter-blue);
 }
+
+@media(max-width: 767px){
+
+  .main-navigation a span{
+    display: none;
+  }
+}

@@ -27,9 +27,9 @@ export default function Tweet({ content }: TweetProps) {
           <span className="text-sm text-[#89a2b8]">@lucass_dev</span>
         </div>
 
-        <p className="whitespace-break-spaces leading-5">{content}</p>
+        <p className="whitespace-break-spaces break-all leading-5">{content}</p>
 
-        <div className="tweet-content-footer mt-3 flex items-center gap-12">
+        <div className="tweet-content-footer mt-3 flex items-center justify-between min-[420px]:justify-normal min-[420px]:gap-12">
           <button
             className="flex items-center gap-2 border-0 bg-transparent text-sm text-[#89a2b8] hover:text-[var(--twitter-blue)]"
             type="button"

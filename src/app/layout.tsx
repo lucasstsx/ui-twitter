@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={roboto.className}>
-        <div className="layout mx-auto my-0 grid max-w-screen-lg grid-cols-[300px_1fr]">
+        <div className="layout mx-auto my-0 grid min-h-screen max-w-screen-lg grid-cols-[80px_1fr] md:grid-cols-[300px_1fr]">
           <Sidebar />
 
           <div className="content border-x border-[#ebeef0]">{children}</div>

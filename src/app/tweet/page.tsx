@@ -2,6 +2,7 @@
 import Header from '@/components/Header'
 import Separator from '@/components/Separator'
 import Tweet from '@/components/Tweet'
+import { PaperPlaneRight } from '@phosphor-icons/react'
 import Image from 'next/image'
 import { FormEvent, useState, KeyboardEvent } from 'react'
 
@@ -54,7 +55,7 @@ export default function Page() {
               height={460}
             />
             <textarea
-              className="flex flex-1 resize-none text-xl font-medium placeholder:text-[#5B7083] focus:outline-none"
+              className="flex flex-1 resize-none text-sm font-medium placeholder:text-[#5B7083] focus:outline-none md:text-xl"
               id="answer"
               placeholder="Tweet your answer"
               onChange={(event) => {
@@ -69,7 +70,8 @@ export default function Page() {
             className="rounded-full bg-[var(--twitter-blue)] px-6 py-2 text-base font-black text-white hover:brightness-95"
             type="submit"
           >
-            Answer
+            <PaperPlaneRight className="block h-6 w-6 md:hidden" />
+            <span className="hidden md:block">Answer</span>
           </button>
         </form>
 
