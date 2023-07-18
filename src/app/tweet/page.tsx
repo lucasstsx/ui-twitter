@@ -1,15 +1,28 @@
+'use client'
 import Header from '@/components/Header'
 import Separator from '@/components/Separator'
 import Tweet from '@/components/Tweet'
 import Image from 'next/image'
-
-const answers = [
-  'Concordo...',
-  'Olha, faz sentido!',
-  'Parabéns pelo progresso!',
-]
+import { FormEvent, useState } from 'react'
 
 export default function Page() {
+  const [answers, setAnswers] = useState([
+    'Concordo...',
+    'Olha, faz sentido!',
+    'Parabéns pelo progresso!',
+  ])
+
+  const [newAnswer, setNewAnswer] = useState('')
+
+  function createNewAnswer(event: FormEvent) {
+    event.preventDefault()
+
+    newAnswer.length === 0 || !newAnswer.trim()
+      ? alert('Digite algo!')
+      : setAnswers([newAnswer, ...answers])
+    setNewAnswer('')
+  }
+
   return (
     <>
       <main className="timeline">
@@ -19,7 +32,10 @@ export default function Page() {
 
         <Separator />
 
-        <form className="answer-tweet-form flex items-center gap-2 border-b border-[#ebeef0] px-5 py-6">
+        <form
+          onSubmit={createNewAnswer}
+          className="answer-tweet-form flex items-center gap-2 border-b border-[#ebeef0] px-5 py-6"
+        >
           <label className="flex flex-[1] items-center gap-3" htmlFor="answer">
             <Image
               className="h-12 w-12 rounded-full"
@@ -32,6 +48,10 @@ export default function Page() {
               className="flex resize-none text-xl font-medium placeholder:text-[#5B7083] focus:outline-none"
               id="answer"
               placeholder="Tweet your answer"
+              onChange={(event) => {
+                setNewAnswer(event.target.value)
+              }}
+              value={newAnswer}
             ></textarea>
           </label>
 
@@ -43,8 +63,8 @@ export default function Page() {
           </button>
         </form>
 
-        {answers.map((answer) => {
-          return <Tweet key={answer} content={answer} />
+        {answers.map((answer, index) => {
+          return <Tweet key={index} content={answer} />
         })}
       </main>
     </>

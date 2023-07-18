@@ -4,16 +4,35 @@ import Image from 'next/image'
 import Tweet from '@/components/Tweet'
 import Separator from '@/components/Separator'
 import Header from '@/components/Header'
-
-const tweets = ['Meu primeiro Tweet', 'Teste', 'Deu certo Tweetar!']
+import { FormEvent, useState } from 'react'
 
 export default function Home() {
+  const [tweets, setTweets] = useState([
+    'Meu primeiro Tweet',
+    'Teste',
+    'Deu certo Tweetar!',
+  ])
+
+  const [newTweet, setNewTweet] = useState('')
+
+  function createNewTweet(event: FormEvent) {
+    event.preventDefault()
+
+    newTweet.length === 0 || !newTweet.trim()
+      ? alert('Digite algo!')
+      : setTweets([newTweet, ...tweets])
+    setNewTweet('')
+  }
+
   return (
     <>
       <main className="timeline">
         <Header title="Home" />
 
-        <form className="new-tweet-form flex flex-col gap-2 px-5 py-6">
+        <form
+          onSubmit={createNewTweet}
+          className="new-tweet-form flex flex-col gap-2 px-5 py-6"
+        >
           <label className="flex items-center gap-3" htmlFor="tweet">
             <Image
               className="h-12 w-12 rounded-full"
@@ -26,6 +45,10 @@ export default function Home() {
               className="flex flex-1 resize-none text-xl font-medium placeholder:text-[#5B7083] focus:outline-none"
               id="tweet"
               placeholder="What's happening?"
+              onChange={(event) => {
+                setNewTweet(event.target.value)
+              }}
+              value={newTweet}
             ></textarea>
           </label>
 
@@ -39,8 +62,8 @@ export default function Home() {
 
         <Separator />
 
-        {tweets.map((tweet) => {
-          return <Tweet key={tweet} content={tweet} />
+        {tweets.map((tweet, index) => {
+          return <Tweet key={index} content={tweet} />
         })}
       </main>
     </>
