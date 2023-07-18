@@ -3,7 +3,7 @@ import Header from '@/components/Header'
 import Separator from '@/components/Separator'
 import Tweet from '@/components/Tweet'
 import Image from 'next/image'
-import { FormEvent, useState } from 'react'
+import { FormEvent, useState, KeyboardEvent } from 'react'
 
 export default function Page() {
   const [answers, setAnswers] = useState([
@@ -23,6 +23,15 @@ export default function Page() {
     setNewAnswer('')
   }
 
+  function handleHotKeySubmit(event: KeyboardEvent) {
+    if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) {
+      newAnswer.length === 0 || !newAnswer.trim()
+        ? alert('Digite algo!')
+        : setAnswers([newAnswer, ...answers])
+      setNewAnswer('')
+    }
+  }
+
   return (
     <>
       <main className="timeline">
@@ -36,7 +45,7 @@ export default function Page() {
           onSubmit={createNewAnswer}
           className="answer-tweet-form flex items-center gap-2 border-b border-[#ebeef0] px-5 py-6"
         >
-          <label className="flex flex-[1] items-center gap-3" htmlFor="answer">
+          <label className="flex flex-1 items-center gap-3" htmlFor="answer">
             <Image
               className="h-12 w-12 rounded-full"
               src="https://github.com/Lucassdev.png"
@@ -45,12 +54,13 @@ export default function Page() {
               height={460}
             />
             <textarea
-              className="flex resize-none text-xl font-medium placeholder:text-[#5B7083] focus:outline-none"
+              className="flex flex-1 resize-none text-xl font-medium placeholder:text-[#5B7083] focus:outline-none"
               id="answer"
               placeholder="Tweet your answer"
               onChange={(event) => {
                 setNewAnswer(event.target.value)
               }}
+              onKeyDown={handleHotKeySubmit}
               value={newAnswer}
             ></textarea>
           </label>

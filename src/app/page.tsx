@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Tweet from '@/components/Tweet'
 import Separator from '@/components/Separator'
 import Header from '@/components/Header'
-import { FormEvent, useState } from 'react'
+import { FormEvent, KeyboardEvent, useState } from 'react'
 
 export default function Home() {
   const [tweets, setTweets] = useState([
@@ -22,6 +22,15 @@ export default function Home() {
       ? alert('Digite algo!')
       : setTweets([newTweet, ...tweets])
     setNewTweet('')
+  }
+
+  function handleHotKeySubmit(event: KeyboardEvent) {
+    if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) {
+      newTweet.length === 0 || !newTweet.trim()
+        ? alert('Digite algo!')
+        : setTweets([newTweet, ...tweets])
+      setNewTweet('')
+    }
   }
 
   return (
@@ -48,6 +57,7 @@ export default function Home() {
               onChange={(event) => {
                 setNewTweet(event.target.value)
               }}
+              onKeyDown={handleHotKeySubmit}
               value={newTweet}
             ></textarea>
           </label>
