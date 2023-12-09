@@ -5,9 +5,9 @@ Este é um projeto de interface de usuário que replica a aparência da interfac
 Você pode conferir uma demonstração ao vivo [aqui](https://ui-twitter-9wufqbbfr-lucassdev.vercel.app/), onde a interface replicada do Twitter pode ser visualizada e interagida.
 
 ## Instalação
-1. Clone este repositório para sua máquina local usando `git clone https://github.com/Lucassdev/ui-twitter.git`
-2. Navegue até o diretório do projeto usando cd `ui-twitter`
-3. Execute `npm install` para instalar as dependências
+1. Clone este repositório para sua máquina local usando `git clone https://github.com/Lucassdev/ui-twitter.git`.
+2. Navegue até o diretório do projeto usando `cd ui-twitter`.
+3. Execute `npm install` para instalar as dependências.
 4. Execute `npm run dev` para iniciar o servidor de desenvolvimento.
 
 ## Contribuição
