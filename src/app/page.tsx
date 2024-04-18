@@ -45,7 +45,7 @@ export default function Home() {
           <label className="flex items-center gap-3" htmlFor="tweet">
             <Image
               className="h-12 w-12 rounded-full"
-              src="https://github.com/Lucassdev.png"
+              src="https://github.com/lucasstsx.png"
               alt="Foto de perfil do usuário"
               width={460}
               height={460}
