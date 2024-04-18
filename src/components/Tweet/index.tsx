@@ -15,7 +15,7 @@ export default function Tweet({ content }: TweetProps) {
     >
       <Image
         className="h-12 w-12 rounded-full"
-        src="https://github.com/Lucassdev.png"
+        src="https://github.com/Lucasstsx.png"
         alt="Foto de perfil do usuário"
         width={460}
         height={460}
