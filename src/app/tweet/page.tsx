@@ -49,7 +49,7 @@ export default function Page() {
           <label className="flex flex-1 items-center gap-3" htmlFor="answer">
             <Image
               className="h-12 w-12 rounded-full"
-              src="https://github.com/Lucassdev.png"
+              src="https://github.com/lucasstsx.png"
               alt="Foto de perfil do usuário"
               width={460}
               height={460}
